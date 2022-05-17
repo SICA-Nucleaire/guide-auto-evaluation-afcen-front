@@ -16,60 +16,61 @@
  ******************************************************************************/
 
 class QuestionnaireApi {
-    constructor() {
-        this.api = "http://127.0.0.1:3000"
-    }
+	constructor() {
+		this.api = "http://127.0.0.1:3000"
+	}
 
-    async myFetchPostBody(url, body) {
-        return new Promise((resolve, reject) => {
-            fetch(`${this.api}/${url}`, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(body)
-            }).then(
-                async r => {
-                    if (r.status < 200 || r.status > 299) {
-                        const data = r.json()
-                        console.log(data)
-                        reject(await data)
-                    } else {
-                        const data = r.json();
-                        console.error(data)
-                        resolve(data)
-                    }
-                }
-            ).catch(
-                err => reject(err)
-            )
-        })
-    }
+	async myFetchPostBody(url, body) {
+		return new Promise((resolve, reject) => {
+			fetch(`${this.api}/${url}`, {
+				method : 'POST',
+				headers : {
+					'Accept' : 'application/json',
+					'Content-Type' : 'application/json'
+				},
+				body : JSON.stringify(body)
+			}).then(
+				async r => {
+					if (r.status < 200 || r.status > 299) {
+						const data = await r.json()
+						console.error(data)
+						reject(data)
+					}
+					else {
+						const data = r.json();
+						// console.log(data)
+						resolve(data)
+					}
+				}
+			).catch(
+				err => reject(err)
+			)
+		})
+	}
 
-    /*
-    async myFetchGet(url) {
-        return new Promise((resolve, reject) => {
-            fetch(`${this.api}/${url}`)
-                .then(async r => {
-                    if (r.status < 200 || r.status > 299) {
-                        reject(await r.json())
-                    } else {
-                        resolve(r.json())
-                    }
-                })
-                .catch(
-                    err => reject(err)
-                )
-        })
-    }
-    */
+	/*
+	 async myFetchGet(url) {
+	 return new Promise((resolve, reject) => {
+	 fetch(`${this.api}/${url}`)
+	 .then(async r => {
+	 if (r.status < 200 || r.status > 299) {
+	 reject(await r.json())
+	 } else {
+	 resolve(r.json())
+	 }
+	 })
+	 .catch(
+	 err => reject(err)
+	 )
+	 })
+	 }
+	 */
 
-    async genererQuestionnaire(body) {
-        return this.myFetchPostBody('questions/questionnaire', body)
-    }
+	async genererQuestionnaire(body) {
+		return this.myFetchPostBody('questions/questionnaire', body)
+	}
 
-    async verifierQuestionnaire(body) {
-        return this.myFetchPostBody('questions/check', body)
-    }
+	async verifierQuestionnaire(body) {
+		return this.myFetchPostBody('questions/check', body)
+	}
 }
