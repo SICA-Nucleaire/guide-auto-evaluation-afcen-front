@@ -23,13 +23,23 @@ class QuestionController extends BaseController {
 		this.genererQuestionnaire()
 	}
 
-	envoyerReponse(reponse) {
-		this.reponsesAEnvoyer.push(reponse)
-		console.log(this.reponsesAEnvoyer)
+	envoyerReponse(id, numeroQuestion, theme, difficulte, reponse) {
+		let temp = {
+			'id' : id,
+			'numeroQuestion' : numeroQuestion,
+			'theme' : theme,
+			'difficulte' : difficulte,
+			'bonnesReponses' : []
+		}
+		temp.bonnesReponses.push(reponse)
+		this.reponsesAEnvoyer.push(temp)
 	}
 
 	supprimerReponse(id) {
 		removeByIdInArray(this.reponsesAEnvoyer, id)
+	}
+
+	logReponsesAEnvoyer() {
 		console.log(this.reponsesAEnvoyer)
 	}
 
@@ -49,25 +59,25 @@ class QuestionController extends BaseController {
 						reponses.push(question.bonnesReponses[0].intitule)
 						reponses.push(question.mauvaisesReponses[0].intitule)
 						reponses = shuffle(reponses)
-						console.log(`'${question.id}'`)
 						$("#question").innerHTML +=
 							`
                             <div id="infoQuestion">Question n°${question.numeroQuestion} (${question.theme} - ${question.difficulte}) : <span style="color: lightblue">${question.intituleDeLaQuestion}</span></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" 
 		                            name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}" 
-		                            onchange="if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked) { $('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked = false; questionController.envoyerReponse(  JSON.stringify({ 'id' : '${question.id.substring(1).slice(0, -1)}', 'numeroQuestion' : ${question.numeroQuestion}, 'theme' : '${question.theme}', 'difficulte' : '${question.difficulte}', 'bonnesReponses' : [ { 'intitule' : '${reponses[0]}' } ] }) ); } else { this.supprimerReponse(${question.id}) console.log('coucou') } ">
+		                            onchange="if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked) { $('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked = false; questionController.supprimerReponse('${question.id}'); questionController.envoyerReponse( '${question.id}', '${question.numeroQuestion}', '${question.theme}', '${question.difficulte}', { 'intitule' : '${reponses[0]}' } ); } ">
                                 <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}">
                                     <div id="reponseUne">${reponses[0]}</div>
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}" onchange="if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked) $('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked = false">
+                                <input class="form-check-input" type="checkbox" 
+                                	name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}" 
+                                	onchange="if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked) {$('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked = false; questionController.supprimerReponse('${question.id}'); questionController.envoyerReponse( '${question.id}', '${question.numeroQuestion}', '${question.theme}', '${question.difficulte}', { 'intitule' : '${reponses[1]}' } ); }">
                                 <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}">
                                     <div id="reponseDeux">${reponses[1]}</div>
                                 </label>
                             </div>
-                            <button onclick="questionController.envoyerReponse(  );">Test</button>
                             <hr class="solid" style="border-top: 3px solid #999999;">
                         `
 					}
@@ -118,21 +128,20 @@ class QuestionController extends BaseController {
 	}
 
 	async verifierQuestionnaire() {
-		await sleep(2000)
-		console.log("coucou")
-		this.questionnaireModel.verifierQuestionnaire({
-			                                              "numeroQuestion" : 2,
-			                                              "theme" : "SMQ",
-			                                              "difficulte" : "debutant",
-			                                              "bonnesReponses" : [
-				                                              {
-					                                              "intitule" : "Vrai"
-				                                              }
-			                                              ]
-		                                              }).then(r => {
-			console.log(r)
-			console.log("fin")
-		})
+		for (const reponse of this.reponsesAEnvoyer) {
+			let body = {
+				"numeroQuestion" : reponse.numeroQuestion,
+				"theme" : reponse.theme,
+				"difficulte" : reponse.difficulte,
+				"bonnesReponses" : []
+			}
+			for (const bonnesReponsesChoisie of reponse.bonnesReponses) {
+				body.bonnesReponses.push(bonnesReponsesChoisie)
+			}
+			this.questionnaireModel.verifierQuestionnaire(body).then(r => {
+				console.log(`Question ${body.numeroQuestion} (${body.theme} - ${body.difficulte}) : ${JSON.stringify(body.bonnesReponses[0])}. Réponse du serveur :`, r)
+			})
+		}
 	}
 }
 

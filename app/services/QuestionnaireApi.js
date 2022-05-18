@@ -38,7 +38,6 @@ class QuestionnaireApi {
 					}
 					else {
 						const data = r.json();
-						// console.log(data)
 						resolve(data)
 					}
 				}
@@ -47,24 +46,6 @@ class QuestionnaireApi {
 			)
 		})
 	}
-
-	/*
-	 async myFetchGet(url) {
-	 return new Promise((resolve, reject) => {
-	 fetch(`${this.api}/${url}`)
-	 .then(async r => {
-	 if (r.status < 200 || r.status > 299) {
-	 reject(await r.json())
-	 } else {
-	 resolve(r.json())
-	 }
-	 })
-	 .catch(
-	 err => reject(err)
-	 )
-	 })
-	 }
-	 */
 
 	async genererQuestionnaire(body) {
 		return this.myFetchPostBody('questions/questionnaire', body)
