@@ -75,7 +75,19 @@ class QuestionController extends BaseController {
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" 
 		                            name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}" 
-		                            onchange="if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked) { $('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked = false; questionController.supprimerReponse('${question.id}'); questionController.ajouterReponse( '${question.id}', '${question.numeroQuestion}', '${question.theme}', '${question.difficulte}', { 'intitule' : '${reponses[0]}' } ); } ">
+		                            onchange="
+		                            	if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked) { 
+											$('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked = false; 
+											questionController.supprimerReponse('${question.id}'); 
+											questionController.ajouterReponse( 
+												'${question.id}', 
+												'${question.numeroQuestion}', 
+												'${question.theme}', 
+												'${question.difficulte}', 
+												{ 'intitule' : '${reponses[0]}' } 
+											); 
+										} 
+									">
                                 <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}">
                                     <div id="reponseUne">${reponses[0]}</div>
                                 </label>
@@ -83,7 +95,19 @@ class QuestionController extends BaseController {
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" 
                                 	name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}" 
-                                	onchange="if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked) {$('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked = false; questionController.supprimerReponse('${question.id}'); questionController.ajouterReponse( '${question.id}', '${question.numeroQuestion}', '${question.theme}', '${question.difficulte}', { 'intitule' : '${reponses[1]}' } ); }">
+                                	onchange="
+                                		if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked) {
+											$('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked = false; 
+											questionController.supprimerReponse('${question.id}'); 
+											questionController.ajouterReponse( 
+												'${question.id}',
+												'${question.numeroQuestion}',
+												'${question.theme}',
+												'${question.difficulte}',
+												{ 'intitule' : '${reponses[1]}' } 
+											); 
+										}
+									">
                                 <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}">
                                     <div id="reponseDeux">${reponses[1]}</div>
                                 </label>
@@ -240,7 +264,7 @@ class QuestionController extends BaseController {
 				body.bonnesReponses.push(bonnesReponsesChoisie)
 			}
 			this.questionnaireModel.verifierQuestionnaire(body).then(r => {
-				console.log(`Question ${body.numeroQuestion} (${body.theme} - ${body.difficulte}) : ${JSON.stringify(body.bonnesReponses[0])}. Réponse du serveur :`, r)
+				console.log(`Question ${body.numeroQuestion} (${body.theme} - ${body.difficulte}) :`, r)
 			})
 		}
 	}
