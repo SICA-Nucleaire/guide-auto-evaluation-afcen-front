@@ -104,7 +104,6 @@ function sleep(ms) {
 	return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
 const removeByIdInArray = (array, id) => {
 	const requiredIndex = array.findIndex(el => {
 		return el.id === String(id);
@@ -113,4 +112,33 @@ const removeByIdInArray = (array, id) => {
 		return false;
 	}
 	return !!array.splice(requiredIndex, 1);
+};
+
+const isInArray = (array, id) => {
+	const requiredIndex = array.findIndex(el => {
+		return el.id === String(id);
+	})
+	return requiredIndex === -1;
+}
+
+const indexInArray = (array, id) => {
+	return array.findIndex(el => {
+		return el.id === String(id);
+	});
+}
+
+const removeIntituleByIdInArray = (array, id, intitule) => {
+	const requiredIndex = array.findIndex(el => {
+		return el.id === String(id);
+	})
+	if (requiredIndex === -1) {
+		return false;
+	}
+	const requiredIndexReponse = array[requiredIndex].bonnesReponses.findIndex(rep => {
+		return rep.intitule === String(intitule);
+	})
+	if (requiredIndex === -1) {
+		return false;
+	}
+	return !!array[requiredIndex].bonnesReponses.splice(requiredIndexReponse, 1);
 };
