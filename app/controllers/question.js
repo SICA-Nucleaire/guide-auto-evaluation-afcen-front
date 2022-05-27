@@ -23,17 +23,18 @@ class QuestionController extends BaseController {
 		this.genererQuestionnaire()
 	}
 
-	ajouterReponse(id, numeroQuestion, theme, difficulte, reponse) {
+	ajouterReponse(id, numeroQuestion, theme, difficulte, reponse, scoreMax) {
 		let temp = {
 			'id' : id,
 			'numeroQuestion' : numeroQuestion,
 			'theme' : theme,
 			'difficulte' : difficulte,
-			'bonnesReponses' : []
+			'bonnesReponses' : [],
+			'scoreMax' : scoreMax
 		}
 		temp.bonnesReponses.push(reponse)
 		this.reponsesAEnvoyer.push(temp)
-		console.log(this.reponsesAEnvoyer)
+		// console.log(this.reponsesAEnvoyer)
 	}
 
 	reponseExiste(id) {
@@ -43,6 +44,7 @@ class QuestionController extends BaseController {
 
 	ajouterReponseExistant(id, reponse) {
 		this.reponsesAEnvoyer[indexInArray(this.reponsesAEnvoyer, id)].bonnesReponses.push(reponse)
+		// console.log(this.reponsesAEnvoyer)
 	}
 
 	supprimerReponse(id) {
@@ -60,7 +62,8 @@ class QuestionController extends BaseController {
 			this.questionnaireModel.genererQuestionnaire({
 				                                             "theme" : listeThemeElement
 			                                             }).then(tableauQuestions => {
-				// const scoreMax = tableauQuestions[3].scoreMax
+				const scoreMax = tableauQuestions[3].scoreMax
+				// console.log('genererQuestionnaire', scoreMax)
 				const newTab = tableauQuestions.splice(0, 3)
 				for (const question of newTab) {
 					const intitule = question.bonnesReponses[0].intitule
@@ -83,8 +86,9 @@ class QuestionController extends BaseController {
 												'${question.id}', 
 												'${question.numeroQuestion}', 
 												'${question.theme}', 
-												'${question.difficulte}', 
-												{ 'intitule' : '${reponses[0]}' } 
+												'${question.difficulte}',
+												{ 'intitule' : '${reponses[0]}' },
+												${scoreMax}
 											); 
 										} 
 									">
@@ -104,7 +108,8 @@ class QuestionController extends BaseController {
 												'${question.numeroQuestion}',
 												'${question.theme}',
 												'${question.difficulte}',
-												{ 'intitule' : '${reponses[1]}' } 
+												{ 'intitule' : '${reponses[1]}' },
+												${scoreMax}
 											); 
 										}
 									">
@@ -125,7 +130,8 @@ class QuestionController extends BaseController {
 						}
 						let reponsesMelangees = shuffle(reponses)
 
-						$("#question").innerHTML += `
+						$("#question").innerHTML +=
+							`
                             <div id="infoQuestion">Question n°${question.numeroQuestion} (${question.theme} - ${question.difficulte}) : <span style="color: lightblue">${question.intituleDeLaQuestion}</span></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-0" 
@@ -136,8 +142,9 @@ class QuestionController extends BaseController {
 														'${question.id}', 
 														'${question.numeroQuestion}', 
 														'${question.theme}', 
-														'${question.difficulte}', 
-														{ 'intitule' : '${reponsesMelangees[0]}' }
+														'${question.difficulte}',
+														{ 'intitule' : '${reponsesMelangees[0]}' }, 
+														${scoreMax}
 												)
 											} else {
 												questionController.ajouterReponseExistant(
@@ -153,7 +160,7 @@ class QuestionController extends BaseController {
 	                                    }
                                 	">
                                 <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-0">
-                                    <div id="reponseDeux">${reponsesMelangees[0]}</div>
+                                    <div id="reponseUne">${reponsesMelangees[0]}</div>
                                 </label>
                             </div>
                             <div class="form-check">
@@ -166,7 +173,8 @@ class QuestionController extends BaseController {
 														'${question.numeroQuestion}', 
 														'${question.theme}', 
 														'${question.difficulte}', 
-														{ 'intitule' : '${reponsesMelangees[1]}' }
+														{ 'intitule' : '${reponsesMelangees[1]}' },
+														${scoreMax}
 												)
 											} else {
 												questionController.ajouterReponseExistant(
@@ -195,7 +203,8 @@ class QuestionController extends BaseController {
 														'${question.numeroQuestion}', 
 														'${question.theme}', 
 														'${question.difficulte}', 
-														{ 'intitule' : '${reponsesMelangees[2]}' }
+														{ 'intitule' : '${reponsesMelangees[2]}' },
+														${scoreMax}
 												)
 											} else {
 												questionController.ajouterReponseExistant(
@@ -211,7 +220,7 @@ class QuestionController extends BaseController {
 	                                    }
                                 	">
                                 <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-2">
-                                    <div id="reponseDeux">${reponsesMelangees[2]}</div>
+                                    <div id="reponseTrois">${reponsesMelangees[2]}</div>
                                 </label>
                             </div>
                             <div class="form-check">
@@ -224,7 +233,8 @@ class QuestionController extends BaseController {
 														'${question.numeroQuestion}', 
 														'${question.theme}', 
 														'${question.difficulte}', 
-														{ 'intitule' : '${reponsesMelangees[3]}' }
+														{ 'intitule' : '${reponsesMelangees[3]}' },
+														${scoreMax}
 												)
 											} else {
 												questionController.ajouterReponseExistant(
@@ -240,7 +250,7 @@ class QuestionController extends BaseController {
 	                                    }
                                 	">
                                 <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-3">
-                                    <div id="reponseDeux">${reponsesMelangees[3]}</div>
+                                    <div id="reponseQuatre">${reponsesMelangees[3]}</div>
                                 </label>
                             </div>
                             <hr class="solid" style="border-top: 3px solid #999999;">
@@ -249,11 +259,66 @@ class QuestionController extends BaseController {
 				}
 			})
 		}
-		window.listeTheme = ['SMQ']
 	}
 
-	async verifierQuestionnaire() {
+	creerChart(themes, notes) {
+		const ctx = document.getElementById('myChart');
+		document.getElementById('divChart').style.display = 'block';
+		new Chart(ctx, {
+			type : 'bar',
+			data : {
+				labels : themes/*['SMQ', 'Aspect matériel', 'Déclaration de Conformité', 'Document de Suivi', 'Procès verbal d’essais', 'Rapport de Fin de Fabrication']*/,
+				datasets : [{
+					axis : 'y',
+					label : 'Note (en %)',
+					data : notes/*[9, 57, 33.33, 77.78, 20, 50]*/,
+					backgroundColor : [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor : [
+						'rgba(255, 99, 132, 1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth : 1
+				}]
+			},
+			options : {
+				indexAxis : 'y',
+				scales : {
+					x : {
+						suggestedMin : 0,
+						suggestedMax : 100
+					}
+				},
+				backgroundColor : 'rgba(255,255,255,0.7)'
+			}
+		});
+	}
+
+	verifierQuestionnaire() {
+		let scoreParTheme = window.listeTheme
+		let tableau = []
+		for (const theme of scoreParTheme) {
+			tableau.push({
+				             "theme" : theme,
+				             "scoreMax" : 0,
+				             "scoreActuel" : 0
+			             })
+		}
 		for (const reponse of this.reponsesAEnvoyer) {
+			const indexRequis = tableau.findIndex(el => {
+				return el.theme === reponse.theme;
+			})
+			tableau[indexRequis].scoreMax = reponse.scoreMax
 			let body = {
 				"numeroQuestion" : reponse.numeroQuestion,
 				"theme" : reponse.theme,
@@ -265,8 +330,40 @@ class QuestionController extends BaseController {
 			}
 			this.questionnaireModel.verifierQuestionnaire(body).then(r => {
 				console.log(`Question ${body.numeroQuestion} (${body.theme} - ${body.difficulte}) :`, r)
+				if (r) {
+					if (body.bonnesReponses[0].intitule === "Vrai" || body.bonnesReponses[0].intitule === "Faux") {
+						tableau[indexRequis].scoreActuel += 1
+					}
+					else {
+						switch (reponse.difficulte) {
+							case "Débutant":
+								tableau[indexRequis].scoreActuel += 2
+								break;
+							case "Intermédiaire":
+								tableau[indexRequis].scoreActuel += 3
+								break;
+							case "Expert":
+								tableau[indexRequis].scoreActuel += 4
+								break;
+							default:
+								break;
+						}
+					}
+				}
 			})
 		}
+		window.listeTheme = ['SMQ']
+		sleep(2000).then(_ => {
+			let themes = []
+			let notes = []
+			for (const element of tableau) {
+				themes.push(element.theme)
+				const pourcentage = ((100 * element.scoreActuel) / element.scoreMax)
+				notes.push(pourcentage)
+			}
+			this.creerChart(themes, notes)
+		})
+
 	}
 }
 
