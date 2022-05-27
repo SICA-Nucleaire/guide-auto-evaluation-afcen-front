@@ -15,7 +15,10 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.     *
  ******************************************************************************/
 
-function $(selector, f) {
+function $(
+	selector,
+	f
+) {
 	if (f == undefined) {
 		return document.querySelector(selector)
 	}
@@ -24,12 +27,27 @@ function $(selector, f) {
 	}
 }
 
-function fetchJSON(url, token) {
+function fetchJSON(
+	url,
+	token
+) {
 	const headers = new Headers();
 	if (token !== undefined) {
-		headers.append("Authorization", `Bearer ${token}`)
+		headers.append(
+			"Authorization",
+			`Bearer ${token}`
+		)
 	}
-	return new Promise((resolve, reject) => fetch(url, {cache : "no-cache", headers : headers})
+	return new Promise((
+		                   resolve,
+		                   reject
+	                   ) => fetch(
+		url,
+		{
+			cache   : "no-cache",
+			headers : headers
+		}
+	)
 		.then(res => {
 			if (res.status === 200) {
 				resolve(res.json())
@@ -41,29 +59,49 @@ function fetchJSON(url, token) {
 		.catch(err => reject(err)))
 }
 
-function include(selector, url, urlcontroller) {
-	fetch(url, {cache : "no-cache"})
+function include(
+	selector,
+	url,
+	urlcontroller
+) {
+	fetch(
+		url,
+		{cache : "no-cache"}
+	)
 		.then(res => res.text())
 		.then(html => {
 			$(`#${selector}`).innerHTML = html
-			fetch(urlcontroller, {cache : "no-cache"})
+			fetch(
+				urlcontroller,
+				{cache : "no-cache"}
+			)
 				.then(res => res.text())
 				.then(js => {
 					eval(js)
 				})
 		})
 		.catch(function (err) {
-			console.log('Failed to fetch page: ', err)
+			console.log(
+				'Failed to fetch page: ',
+				err
+			)
 		});
 }
 
 function navigate(view) {
-	include('content', `views/${view}.html`, `app/controllers/${view}.js`)
+	include(
+		'content',
+		`views/${view}.html`,
+		`app/controllers/${view}.js`
+	)
 }
 
 const dateFormat = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/;
 
-function reviver(key, value) {
+function reviver(
+	key,
+	value
+) {
 	if (typeof value === "string" && dateFormat.test(value)) {
 		return new Date(value);
 	}
@@ -72,62 +110,95 @@ function reviver(key, value) {
 
 function getParameterByName(name) {
 	let match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
-	return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+	return match && decodeURIComponent(match[1].replace(
+		/\+/g,
+		' '
+	));
 }
 
 
-function removeAllElements(array, elem) {
+function removeAllElements(
+	array,
+	elem
+) {
 	let index = array.indexOf(elem);
 	while (index > -1) {
-		array.splice(index, 1);
+		array.splice(
+			index,
+			1
+		);
 		index = array.indexOf(elem);
 	}
 }
 
 function shuffle(array) {
-	let copy = [], n = array.length, i;
-
+	let copy = [],
+	    n    = array.length,
+	    i;
+	
 	// While there remain elements to shuffle…
 	while (n) {
-
+		
 		// Pick a remaining element…
 		i = Math.floor(Math.random() * n--);
-
+		
 		// And move it to the new array.
-		copy.push(array.splice(i, 1)[0]);
+		copy.push(array.splice(
+			i,
+			1
+		)[0]);
 	}
-
+	
 	return copy;
 }
 
 function sleep(ms) {
-	return new Promise(resolve => setTimeout(resolve, ms));
+	return new Promise(resolve => setTimeout(
+		resolve,
+		ms
+	));
 }
 
-const removeByIdInArray = (array, id) => {
+const removeByIdInArray = (
+	array,
+	id
+) => {
 	const requiredIndex = array.findIndex(el => {
 		return el.id === String(id);
 	})
 	if (requiredIndex === -1) {
 		return false;
 	}
-	return !!array.splice(requiredIndex, 1);
+	return !!array.splice(
+		requiredIndex,
+		1
+	);
 };
 
-const isInArray = (array, id) => {
+const isInArray = (
+	array,
+	id
+) => {
 	const requiredIndex = array.findIndex(el => {
 		return el.id === String(id);
 	})
 	return requiredIndex === -1;
 }
 
-const indexInArray = (array, id) => {
+const indexInArray = (
+	array,
+	id
+) => {
 	return array.findIndex(el => {
 		return el.id === String(id);
 	});
 }
 
-const removeIntituleByIdInArray = (array, id, intitule) => {
+const removeIntituleByIdInArray = (
+	array,
+	id,
+	intitule
+) => {
 	const requiredIndex = array.findIndex(el => {
 		return el.id === String(id);
 	})
@@ -140,5 +211,8 @@ const removeIntituleByIdInArray = (array, id, intitule) => {
 	if (requiredIndex === -1) {
 		return false;
 	}
-	return !!array[requiredIndex].bonnesReponses.splice(requiredIndexReponse, 1);
+	return !!array[requiredIndex].bonnesReponses.splice(
+		requiredIndexReponse,
+		1
+	);
 };

@@ -16,838 +16,838 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <nav class="navbar navbar-dark bg-dark">
-    <!-- Navbar content -->
-    <div class="container-fluid">
+	<!-- Navbar content -->
+	<div class="container-fluid">
         <span class="navbar-brand" onclick="navigate('accueil')" style="cursor: pointer;">
             Accueil
         </span>
-    </div>
+	</div>
 </nav>
 <div class="container">
-    <h3 class="text-center">Sélectionner les domaines sur lesquels vous souhaitez vous évaluer et cliquez sur
-        "Valider".</h3>
-    <div style="width: 100%; display: flex; align-items: center; justify-content: end;"
-         onclick="navigate('explication')">
-        <button type="button" class="btn btn-lg btn-primary">
-            Valider
-        </button>
-    </div>
-    <hr>
-    <div class="container" id="divListeThemes">
-        <ul id="ulListeThemes">
-            <li>
+	<h3 class="text-center">Sélectionner les domaines sur lesquels vous souhaitez vous évaluer et cliquez sur
+	                        "Valider".</h3>
+	<div style="width: 100%; display: flex; align-items: center; justify-content: end;"
+	     onclick="navigate('explication')">
+		<button type="button" class="btn btn-lg btn-primary">
+			Valider
+		</button>
+	</div>
+	<hr>
+	<div class="container" id="divListeThemes">
+		<ul id="ulListeThemes">
+			<li>
             <span class="caret">
                 Fabrication ou/et Remise en état
             </span>
-                <ul class="nested">
-                    <li>
+				<ul class="nested">
+					<li>
                         <span class="caret">
                         Électronique
                     </span>
-                        <ul class="nested">
-                            <li>
-                                <div id="divFabricationREEElectroniqueAspectMateriel">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Aspect matériel"
-                                               id="flexCheckFabricationREEElectroniqueAspectMateriel"
-                                               onchange="gestionItem('flexCheckFabricationREEElectroniqueAspectMateriel')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckFabricationREEElectroniqueAspectMateriel">
-                                            Aspect matériel
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
+						<ul class="nested">
+							<li>
+								<div id="divFabricationREEElectroniqueAspectMateriel">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="Aspect matériel"
+										       id="flexCheckFabricationREEElectroniqueAspectMateriel"
+										       onchange="gestionItem('flexCheckFabricationREEElectroniqueAspectMateriel')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckFabricationREEElectroniqueAspectMateriel">
+											Aspect matériel
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li>
                         <span class="caret">
                             Traçabilité
                         </span>
-                        <ul class="nested">
-                            <li>
-                                <div id="divFabricationREETracabiliteDeclarationDeConformite">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"
-                                               value="Déclaration de Conformité"
-                                               id="flexCheckFabricationREETracabiliteDeclarationDeConformite"
-                                               onchange="gestionItem('flexCheckFabricationREETracabiliteDeclarationDeConformite')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckFabricationREETracabiliteDeclarationDeConformite">
-                                            Déclaration de Conformité
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="divFabricationREETracabiliteDocumentDeSuivi">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Document de Suivi"
-                                               id="flexCheckFabricationREETracabiliteDocumentDeSuivi"
-                                               onchange="gestionItem('flexCheckFabricationREETracabiliteDocumentDeSuivi')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckFabricationREETracabiliteDocumentDeSuivi">
-                                            Document de Suivi
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="divFabricationREETracabiliteProcesVerbalEssais">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Procès verbal d'essais"
-                                               id="flexCheckFabricationREETracabiliteProcesVerbalEssais"
-                                               onchange="gestionItem('flexCheckFabricationREETracabiliteProcesVerbalEssais')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckFabricationREETracabiliteProcesVerbalEssais">
-                                            Procès verbal d'essais
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="divFabricationREETracabiliteRapportFinFabrication">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"
-                                               value="Rapport de Fin de Fabrication"
-                                               id="flexCheckFabricationREETracabiliteRapportFinFabrication"
-                                               onchange="gestionItem('flexCheckFabricationREETracabiliteRapportFinFabrication')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckFabricationREETracabiliteRapportFinFabrication">
-                                            Rapport de Fin de Fabrication
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
+						<ul class="nested">
+							<li>
+								<div id="divFabricationREETracabiliteDeclarationDeConformite">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+										       value="Déclaration de Conformité"
+										       id="flexCheckFabricationREETracabiliteDeclarationDeConformite"
+										       onchange="gestionItem('flexCheckFabricationREETracabiliteDeclarationDeConformite')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckFabricationREETracabiliteDeclarationDeConformite">
+											Déclaration de Conformité
+										</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div id="divFabricationREETracabiliteDocumentDeSuivi">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="Document de Suivi"
+										       id="flexCheckFabricationREETracabiliteDocumentDeSuivi"
+										       onchange="gestionItem('flexCheckFabricationREETracabiliteDocumentDeSuivi')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckFabricationREETracabiliteDocumentDeSuivi">
+											Document de Suivi
+										</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div id="divFabricationREETracabiliteProcesVerbalEssais">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="Procès verbal d'essais"
+										       id="flexCheckFabricationREETracabiliteProcesVerbalEssais"
+										       onchange="gestionItem('flexCheckFabricationREETracabiliteProcesVerbalEssais')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckFabricationREETracabiliteProcesVerbalEssais">
+											Procès verbal d'essais
+										</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div id="divFabricationREETracabiliteRapportFinFabrication">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+										       value="Rapport de Fin de Fabrication"
+										       id="flexCheckFabricationREETracabiliteRapportFinFabrication"
+										       onchange="gestionItem('flexCheckFabricationREETracabiliteRapportFinFabrication')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckFabricationREETracabiliteRapportFinFabrication">
+											Rapport de Fin de Fabrication
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li>
                         <span class="caret">
                             Fournisseur / sous-traitants
                         </span>
-                        <ul class="nested">
-                            <li>
-                                <div id="divFabricationREEFournisseurSousTraitantsSpecificationApprovisionnement">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"
-                                               value="Spécification d'approvisionnement"
-                                               id="flexCheckFabricationREEFournisseurSousTraitantsSpecificationApprovisionnement"
-                                               onchange="gestionItem('flexCheckFabricationREEFournisseurSousTraitantsSpecificationApprovisionnement')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckFabricationREEFournisseurSousTraitantsSpecificationApprovisionnement">
-                                            Spécification d'approvisionnement
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
+						<ul class="nested">
+							<li>
+								<div id="divFabricationREEFournisseurSousTraitantsSpecificationApprovisionnement">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+										       value="Spécification d'approvisionnement"
+										       id="flexCheckFabricationREEFournisseurSousTraitantsSpecificationApprovisionnement"
+										       onchange="gestionItem('flexCheckFabricationREEFournisseurSousTraitantsSpecificationApprovisionnement')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckFabricationREEFournisseurSousTraitantsSpecificationApprovisionnement">
+											Spécification d'approvisionnement
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<li>
                         <span class="caret">
                             Ingénierie du matériel
                         </span>
-                        <ul class="nested">
-                            <div style="columns: 3">
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielInterferenceElectromagnetique">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="Interférence électromagnétique"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielInterferenceElectromagnetique"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielInterferenceElectromagnetique')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielInterferenceElectromagnetique">
-                                                Interférence électromagnétique
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielResistanceMecanique">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Résistance mécanique"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielResistanceMecanique"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielResistanceMecanique')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielResistanceMecanique">
-                                                Résistance mécanique
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielEnveloppes">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Enveloppes"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielEnveloppes"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielEnveloppes')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielEnveloppes">
-                                                Enveloppes
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielMarquage">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Marquage"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielMarquage"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielMarquage')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielMarquage">
-                                                Marquage
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielSertissage">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Sertissage"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielSertissage"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielSertissage')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielSertissage">
-                                                Sertissage
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielPolymere">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Polymère"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielPolymere"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielPolymere')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielPolymere">
-                                                Polymère
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielResistanceAuFeu">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Résistance au feu"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielResistanceAuFeu"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielResistanceAuFeu')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielResistanceAuFeu">
-                                                Résistance au feu
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielTermipoint">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Termipoint"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielTermipoint"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielTermipoint')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielTermipoint">
-                                                Termipoint
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielWrapping">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Wrapping"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielWrapping"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielWrapping')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielWrapping">
-                                                Wrapping
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielExigencesEtRecommandationsSpecifiquesAuxMateriels">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="Exigences et recommandations spécifiques aux matériels"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielExigencesEtRecommandationsSpecifiquesAuxMateriels"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielExigencesEtRecommandationsSpecifiquesAuxMateriels')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielExigencesEtRecommandationsSpecifiquesAuxMateriels">
-                                                Exigences et recommandations spécifiques aux matériels
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielInterchangeabilite">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Interchangeabilité"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielInterchangeabilite"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielInterchangeabilite')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielInterchangeabilite">
-                                                Interchangeabilité
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielCablageInterne">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Câblage interne"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielCablageInterne"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielCablageInterne')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielCablageInterne">
-                                                Câblage interne
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielMaintenance">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Maintenance"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielMaintenance"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielMaintenance')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielMaintenance">
-                                                Maintenance
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielControlesEtEssais">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Contrôles et essais"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielControlesEtEssais"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielControlesEtEssais')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielControlesEtEssais">
-                                                Contrôles et essais
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divFabricationREEIngenierieDuMaterielDeverminage">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Déverminage"
-                                                   id="flexCheckFabricationREEIngenierieDuMaterielDeverminage"
-                                                   onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielDeverminage')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckFabricationREEIngenierieDuMaterielDeverminage">
-                                                Déverminage
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                            </div>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
+						<ul class="nested">
+							<div style="columns: 3">
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielInterferenceElectromagnetique">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="Interférence électromagnétique"
+											       id="flexCheckFabricationREEIngenierieDuMaterielInterferenceElectromagnetique"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielInterferenceElectromagnetique')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielInterferenceElectromagnetique">
+												Interférence électromagnétique
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielResistanceMecanique">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Résistance mécanique"
+											       id="flexCheckFabricationREEIngenierieDuMaterielResistanceMecanique"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielResistanceMecanique')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielResistanceMecanique">
+												Résistance mécanique
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielEnveloppes">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Enveloppes"
+											       id="flexCheckFabricationREEIngenierieDuMaterielEnveloppes"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielEnveloppes')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielEnveloppes">
+												Enveloppes
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielMarquage">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Marquage"
+											       id="flexCheckFabricationREEIngenierieDuMaterielMarquage"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielMarquage')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielMarquage">
+												Marquage
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielSertissage">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Sertissage"
+											       id="flexCheckFabricationREEIngenierieDuMaterielSertissage"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielSertissage')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielSertissage">
+												Sertissage
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielPolymere">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Polymère"
+											       id="flexCheckFabricationREEIngenierieDuMaterielPolymere"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielPolymere')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielPolymere">
+												Polymère
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielResistanceAuFeu">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Résistance au feu"
+											       id="flexCheckFabricationREEIngenierieDuMaterielResistanceAuFeu"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielResistanceAuFeu')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielResistanceAuFeu">
+												Résistance au feu
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielTermipoint">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Termipoint"
+											       id="flexCheckFabricationREEIngenierieDuMaterielTermipoint"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielTermipoint')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielTermipoint">
+												Termipoint
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielWrapping">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Wrapping"
+											       id="flexCheckFabricationREEIngenierieDuMaterielWrapping"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielWrapping')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielWrapping">
+												Wrapping
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielExigencesEtRecommandationsSpecifiquesAuxMateriels">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="Exigences et recommandations spécifiques aux matériels"
+											       id="flexCheckFabricationREEIngenierieDuMaterielExigencesEtRecommandationsSpecifiquesAuxMateriels"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielExigencesEtRecommandationsSpecifiquesAuxMateriels')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielExigencesEtRecommandationsSpecifiquesAuxMateriels">
+												Exigences et recommandations spécifiques aux matériels
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielInterchangeabilite">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Interchangeabilité"
+											       id="flexCheckFabricationREEIngenierieDuMaterielInterchangeabilite"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielInterchangeabilite')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielInterchangeabilite">
+												Interchangeabilité
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielCablageInterne">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Câblage interne"
+											       id="flexCheckFabricationREEIngenierieDuMaterielCablageInterne"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielCablageInterne')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielCablageInterne">
+												Câblage interne
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielMaintenance">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Maintenance"
+											       id="flexCheckFabricationREEIngenierieDuMaterielMaintenance"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielMaintenance')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielMaintenance">
+												Maintenance
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielControlesEtEssais">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Contrôles et essais"
+											       id="flexCheckFabricationREEIngenierieDuMaterielControlesEtEssais"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielControlesEtEssais')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielControlesEtEssais">
+												Contrôles et essais
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divFabricationREEIngenierieDuMaterielDeverminage">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Déverminage"
+											       id="flexCheckFabricationREEIngenierieDuMaterielDeverminage"
+											       onchange="gestionItem('flexCheckFabricationREEIngenierieDuMaterielDeverminage')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckFabricationREEIngenierieDuMaterielDeverminage">
+												Déverminage
+											</label>
+										</div>
+									</div>
+								</li>
+							</div>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
             <span class="caret">
                 Études
             </span>
-                <ul class="nested">
-                    <!-- Qualification matériel -->
-                    <li>
+				<ul class="nested">
+					<!-- Qualification matériel -->
+					<li>
                         <span class="caret">
                         Qualification matériel
                     </span>
-                        <ul class="nested">
-                            <div style="columns: 2">
-                                <li>
-                                    <div id="divEtudesKLIFMaterielKLIFAuxConditionsNormalesDAmbiance">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="KLIF aux conditions normales d’ambiance"
-                                                   id="flexCheckEtudesKLIFMaterielKLIFAuxConditionsNormalesDAmbiance"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFAuxConditionsNormalesDAmbiance')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckEtudesKLIFMaterielKLIFAuxConditionsNormalesDAmbiance">
-                                                KLIF aux conditions normales d’ambiance
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divEtudesKLIFMaterielKLIFK3">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="KLIF K3"
-                                                   id="flexCheckEtudesKLIFMaterielKLIFK3"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFK3')"
-                                            >
-                                            <label class="form-check-label" for="flexCheckEtudesKLIFMaterielKLIFK3">
-                                                KLIF K3
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divEtudesKLIFMaterielKLIFK2">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="KLIF K2"
-                                                   id="flexCheckEtudesKLIFMaterielKLIFK2"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFK2')"
-                                            >
-                                            <label class="form-check-label" for="flexCheckEtudesKLIFMaterielKLIFK2">
-                                                KLIF K2
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divEtudesKLIFMaterielKLIFK1">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="KLIF K1"
-                                                   id="flexCheckEtudesKLIFMaterielKLIFK1"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFK1')"
-                                            >
-                                            <label class="form-check-label" for="flexCheckEtudesKLIFMaterielKLIFK1">
-                                                KLIF K1
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divEtudesKLIFMaterielKLIFAG">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="KLIF AG"
-                                                   id="flexCheckEtudesKLIFMaterielKLIFAG"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFAG')"
-                                            >
-                                            <label class="form-check-label" for="flexCheckEtudesKLIFMaterielKLIFAG">
-                                                KLIF AG
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divEtudesKLIFMaterielKLIFMaterielDonnesEntrees">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="KLIF matériel - Données d'entrée"
-                                                   id="flexCheckEtudesKLIFMaterielKLIFMaterielDonnesEntrees"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFMaterielDonnesEntrees')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckEtudesKLIFMaterielKLIFMaterielDonnesEntrees">
-                                                KLIF matériel - Données d'entrée
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divEtudesKLIFMaterielKLIFMaterielGeneralitesEtDocuments">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="KLIF matériel - Généralités et documents"
-                                                   id="flexCheckEtudesKLIFMaterielKLIFMaterielGeneralitesEtDocuments"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFMaterielGeneralitesEtDocuments')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckEtudesKLIFMaterielKLIFMaterielGeneralitesEtDocuments">
-                                                KLIF matériel - Généralités et documents
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divEtudesKLIFMaterielControleDesPerformances">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="KLIF matériel - Contrôle des performances"
-                                                   id="flexCheckEtudesKLIFMaterielControleDesPerformances"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielControleDesPerformances')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckEtudesKLIFMaterielControleDesPerformances">
-                                                KLIF matériel - Contrôle des performances
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divEtudesKLIFMaterielExtensionDeKLIFMateriel">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="Extension de KLIF matériel"
-                                                   id="flexCheckEtudesKLIFMaterielExtensionDeKLIFMateriel"
-                                                   onchange="gestionItem('flexCheckEtudesKLIFMaterielExtensionDeKLIFMateriel')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckEtudesKLIFMaterielExtensionDeKLIFMateriel">
-                                                Extension de KLIF matériel
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                            </div>
-                        </ul>
-                    </li>
-                    <!-- Obsolescence -->
-                    <li>
+						<ul class="nested">
+							<div style="columns: 2">
+								<li>
+									<div id="divEtudesKLIFMaterielKLIFAuxConditionsNormalesDAmbiance">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="KLIF aux conditions normales d’ambiance"
+											       id="flexCheckEtudesKLIFMaterielKLIFAuxConditionsNormalesDAmbiance"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFAuxConditionsNormalesDAmbiance')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckEtudesKLIFMaterielKLIFAuxConditionsNormalesDAmbiance">
+												KLIF aux conditions normales d’ambiance
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divEtudesKLIFMaterielKLIFK3">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="KLIF K3"
+											       id="flexCheckEtudesKLIFMaterielKLIFK3"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFK3')"
+											>
+											<label class="form-check-label" for="flexCheckEtudesKLIFMaterielKLIFK3">
+												KLIF K3
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divEtudesKLIFMaterielKLIFK2">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="KLIF K2"
+											       id="flexCheckEtudesKLIFMaterielKLIFK2"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFK2')"
+											>
+											<label class="form-check-label" for="flexCheckEtudesKLIFMaterielKLIFK2">
+												KLIF K2
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divEtudesKLIFMaterielKLIFK1">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="KLIF K1"
+											       id="flexCheckEtudesKLIFMaterielKLIFK1"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFK1')"
+											>
+											<label class="form-check-label" for="flexCheckEtudesKLIFMaterielKLIFK1">
+												KLIF K1
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divEtudesKLIFMaterielKLIFAG">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="KLIF AG"
+											       id="flexCheckEtudesKLIFMaterielKLIFAG"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFAG')"
+											>
+											<label class="form-check-label" for="flexCheckEtudesKLIFMaterielKLIFAG">
+												KLIF AG
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divEtudesKLIFMaterielKLIFMaterielDonnesEntrees">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="KLIF matériel - Données d'entrée"
+											       id="flexCheckEtudesKLIFMaterielKLIFMaterielDonnesEntrees"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFMaterielDonnesEntrees')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckEtudesKLIFMaterielKLIFMaterielDonnesEntrees">
+												KLIF matériel - Données d'entrée
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divEtudesKLIFMaterielKLIFMaterielGeneralitesEtDocuments">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="KLIF matériel - Généralités et documents"
+											       id="flexCheckEtudesKLIFMaterielKLIFMaterielGeneralitesEtDocuments"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielKLIFMaterielGeneralitesEtDocuments')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckEtudesKLIFMaterielKLIFMaterielGeneralitesEtDocuments">
+												KLIF matériel - Généralités et documents
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divEtudesKLIFMaterielControleDesPerformances">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="KLIF matériel - Contrôle des performances"
+											       id="flexCheckEtudesKLIFMaterielControleDesPerformances"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielControleDesPerformances')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckEtudesKLIFMaterielControleDesPerformances">
+												KLIF matériel - Contrôle des performances
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divEtudesKLIFMaterielExtensionDeKLIFMateriel">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="Extension de KLIF matériel"
+											       id="flexCheckEtudesKLIFMaterielExtensionDeKLIFMateriel"
+											       onchange="gestionItem('flexCheckEtudesKLIFMaterielExtensionDeKLIFMateriel')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckEtudesKLIFMaterielExtensionDeKLIFMateriel">
+												Extension de KLIF matériel
+											</label>
+										</div>
+									</div>
+								</li>
+							</div>
+						</ul>
+					</li>
+					<!-- Obsolescence -->
+					<li>
                         <span class="caret">
                             Obsolescence
                         </span>
-                        <ul class="nested">
-                            <li>
-                                <div id="divEtudesObsolescenceObsolescence">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Obsolescence"
-                                               id="flexCheckEtudesObsolescenceObsolescence"
-                                               onchange="gestionItem('flexCheckEtudesObsolescenceObsolescence')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckEtudesObsolescenceObsolescence">
-                                            Obsolescence
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Qualification logiciel -->
-                    <li>
+						<ul class="nested">
+							<li>
+								<div id="divEtudesObsolescenceObsolescence">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="Obsolescence"
+										       id="flexCheckEtudesObsolescenceObsolescence"
+										       onchange="gestionItem('flexCheckEtudesObsolescenceObsolescence')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckEtudesObsolescenceObsolescence">
+											Obsolescence
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<!-- Qualification logiciel -->
+					<li>
                         <span class="caret">
                             Qualification logiciel
                         </span>
-                        <ul class="nested">
-                            <li>
-                                <div id="divEtudesQualificationLogicielANFL">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="ANFL"
-                                               id="flexCheckEtudesQualificationLogicielANFL"
-                                               onchange="gestionItem('flexCheckEtudesQualificationLogicielANFL')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckEtudesQualificationLogicielANFL">
-                                            ANFL
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="divEtudesQualificationLogicielHDL">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="HDL"
-                                               id="flexCheckEtudesQualificationLogicielHDL"
-                                               onchange="gestionItem('flexCheckEtudesQualificationLogicielHDL')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckEtudesQualificationLogicielHDL">
-                                            HDL
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="divEtudesQualificationLogicielSystemeProgramme">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Système programmé"
-                                               id="flexCheckEtudesQualificationLogicielSystemeProgramme"
-                                               onchange="gestionItem('flexCheckEtudesQualificationLogicielSystemeProgramme')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckEtudesQualificationLogicielSystemeProgramme">
-                                            Système programmé
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Pérennité de qualification -->
-                    <li>
+						<ul class="nested">
+							<li>
+								<div id="divEtudesQualificationLogicielANFL">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="ANFL"
+										       id="flexCheckEtudesQualificationLogicielANFL"
+										       onchange="gestionItem('flexCheckEtudesQualificationLogicielANFL')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckEtudesQualificationLogicielANFL">
+											ANFL
+										</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div id="divEtudesQualificationLogicielHDL">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="HDL"
+										       id="flexCheckEtudesQualificationLogicielHDL"
+										       onchange="gestionItem('flexCheckEtudesQualificationLogicielHDL')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckEtudesQualificationLogicielHDL">
+											HDL
+										</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div id="divEtudesQualificationLogicielSystemeProgramme">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="Système programmé"
+										       id="flexCheckEtudesQualificationLogicielSystemeProgramme"
+										       onchange="gestionItem('flexCheckEtudesQualificationLogicielSystemeProgramme')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckEtudesQualificationLogicielSystemeProgramme">
+											Système programmé
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+					<!-- Pérennité de qualification -->
+					<li>
                         <span class="caret">
                             Pérennité de qualification
                         </span>
-                        <ul class="nested">
-                            <li>
-                                <div id="divEtudesPerenniteDeQualificationDossierDeReference">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Dossier de Référence"
-                                               id="flexCheckEtudesPerenniteDeQualificationDossierDeReference"
-                                               onchange="gestionItem('flexCheckEtudesPerenniteDeQualificationDossierDeReference')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckEtudesPerenniteDeQualificationDossierDeReference">
-                                            Dossier de Référence
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="divEtudesPerenniteDeQualificationOperationSensibleDApprovisionnementOuDeFabrication">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"
-                                               value="Opération sensible d’approvisionnement ou de fabrication"
-                                               id="flexCheckEtudesPerenniteDeQualificationOperationSensibleDApprovisionnementOuDeFabrication"
-                                               onchange="gestionItem('flexCheckEtudesPerenniteDeQualificationOperationSensibleDApprovisionnementOuDeFabrication')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckEtudesPerenniteDeQualificationOperationSensibleDApprovisionnementOuDeFabrication">
-                                            Opération sensible d’approvisionnement ou de fabrication
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div id="divEtudesPerenniteDeQualificationEssaisSurPrelevement">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox"
-                                               value="Essais sur prélèvement"
-                                               id="flexCheckEtudesPerenniteDeQualificationEssaisSurPrelevement"
-                                               onchange="gestionItem('flexCheckEtudesPerenniteDeQualificationEssaisSurPrelevement')"
-                                        >
-                                        <label class="form-check-label"
-                                               for="flexCheckEtudesPerenniteDeQualificationEssaisSurPrelevement">
-                                            Essais sur prélèvement
-                                        </label>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
+						<ul class="nested">
+							<li>
+								<div id="divEtudesPerenniteDeQualificationDossierDeReference">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox" value="Dossier de Référence"
+										       id="flexCheckEtudesPerenniteDeQualificationDossierDeReference"
+										       onchange="gestionItem('flexCheckEtudesPerenniteDeQualificationDossierDeReference')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckEtudesPerenniteDeQualificationDossierDeReference">
+											Dossier de Référence
+										</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div id="divEtudesPerenniteDeQualificationOperationSensibleDApprovisionnementOuDeFabrication">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+										       value="Opération sensible d’approvisionnement ou de fabrication"
+										       id="flexCheckEtudesPerenniteDeQualificationOperationSensibleDApprovisionnementOuDeFabrication"
+										       onchange="gestionItem('flexCheckEtudesPerenniteDeQualificationOperationSensibleDApprovisionnementOuDeFabrication')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckEtudesPerenniteDeQualificationOperationSensibleDApprovisionnementOuDeFabrication">
+											Opération sensible d’approvisionnement ou de fabrication
+										</label>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div id="divEtudesPerenniteDeQualificationEssaisSurPrelevement">
+									<div class="form-check">
+										<input class="form-check-input" type="checkbox"
+										       value="Essais sur prélèvement"
+										       id="flexCheckEtudesPerenniteDeQualificationEssaisSurPrelevement"
+										       onchange="gestionItem('flexCheckEtudesPerenniteDeQualificationEssaisSurPrelevement')"
+										>
+										<label class="form-check-label"
+										       for="flexCheckEtudesPerenniteDeQualificationEssaisSurPrelevement">
+											Essais sur prélèvement
+										</label>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
                 <span class="caret">
                     Installation
                 </span>
-                <ul class="nested">
-                    <li>
-                        <div id="divInstallationEtudes">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Études"
-                                       id="flexCheckInstallationEtudes"
-                                       onchange="gestionItem('flexCheckInstallationEtudes')"
-                                >
-                                <label class="form-check-label" for="flexCheckInstallationEtudes">
-                                    Études
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div id="divInstallationVerifications">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Vérifications"
-                                       id="flexCheckInstallationVerifications"
-                                       onchange="gestionItem('flexCheckInstallationVerifications')"
-                                >
-                                <label class="form-check-label" for="flexCheckInstallationVerifications">
-                                    Vérifications
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div id="divInstallationPerennite">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Pérennité"
-                                       id="flexCheckInstallationPerennite"
-                                       onchange="gestionItem('flexCheckInstallationPerennite')"
-                                >
-                                <label class="form-check-label" for="flexCheckInstallationPerennite">
-                                    Pérennité
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
+				<ul class="nested">
+					<li>
+						<div id="divInstallationEtudes">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="Études"
+								       id="flexCheckInstallationEtudes"
+								       onchange="gestionItem('flexCheckInstallationEtudes')"
+								>
+								<label class="form-check-label" for="flexCheckInstallationEtudes">
+									Études
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id="divInstallationVerifications">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="Vérifications"
+								       id="flexCheckInstallationVerifications"
+								       onchange="gestionItem('flexCheckInstallationVerifications')"
+								>
+								<label class="form-check-label" for="flexCheckInstallationVerifications">
+									Vérifications
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id="divInstallationPerennite">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="Pérennité"
+								       id="flexCheckInstallationPerennite"
+								       onchange="gestionItem('flexCheckInstallationPerennite')"
+								>
+								<label class="form-check-label" for="flexCheckInstallationPerennite">
+									Pérennité
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
                         <span class="caret">
                             Dispositions
                         </span>
-                        <ul class="nested">
-                            <div style="columns: 2">
-                                <li>
-                                    <div id="divInstallationDispositionsSeparation">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Séparation"
-                                                   id="flexCheckInstallationDispositionsSeparation"
-                                                   onchange="gestionItem('flexCheckInstallationDispositionsSeparation')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckInstallationDispositionsSeparation">
-                                                Séparation
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divInstallationDispositionsExigencesParticulieresPourLeSeisme">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="Exigences particulières pour le séisme"
-                                                   id="flexCheckInstallationDispositionsExigencesParticulieresPourLeSeisme"
-                                                   onchange="gestionItem('flexCheckInstallationDispositionsExigencesParticulieresPourLeSeisme')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckInstallationDispositionsExigencesParticulieresPourLeSeisme">
-                                                Exigences particulières pour le séisme
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divInstallationDispositionsDispositifs">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Dispositifs"
-                                                   id="flexCheckInstallationDispositionsDispositifs"
-                                                   onchange="gestionItem('flexCheckInstallationDispositionsDispositifs')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckInstallationDispositionsDispositifs">
-                                                Dispositifs
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divInstallationDispositionsRaccordements">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="Raccordements"
-                                                   id="flexCheckInstallationDispositionsRaccordements"
-                                                   onchange="gestionItem('flexCheckInstallationDispositionsRaccordements')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckInstallationDispositionsRaccordements">
-                                                Raccordements
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divInstallationDispositionsReseauxDeTerreEtDeMasse">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="Réseaux de terre et de masse"
-                                                   id="flexCheckInstallationDispositionsReseauxDeTerreEtDeMasse"
-                                                   onchange="gestionItem('flexCheckInstallationDispositionsReseauxDeTerreEtDeMasse')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckInstallationDispositionsReseauxDeTerreEtDeMasse">
-                                                Réseaux de terre et de masse
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div id="divInstallationDispositionsIdentificationDesLiaisons">
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="checkbox"
-                                                   value="Identification des liaisons"
-                                                   id="flexCheckInstallationDispositionsIdentificationDesLiaisons"
-                                                   onchange="gestionItem('flexCheckInstallationDispositionsIdentificationDesLiaisons')"
-                                            >
-                                            <label class="form-check-label"
-                                                   for="flexCheckInstallationDispositionsIdentificationDesLiaisons">
-                                                Identification des liaisons
-                                            </label>
-                                        </div>
-                                    </div>
-                                </li>
-                            </div>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li>
+						<ul class="nested">
+							<div style="columns: 2">
+								<li>
+									<div id="divInstallationDispositionsSeparation">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Séparation"
+											       id="flexCheckInstallationDispositionsSeparation"
+											       onchange="gestionItem('flexCheckInstallationDispositionsSeparation')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckInstallationDispositionsSeparation">
+												Séparation
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divInstallationDispositionsExigencesParticulieresPourLeSeisme">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="Exigences particulières pour le séisme"
+											       id="flexCheckInstallationDispositionsExigencesParticulieresPourLeSeisme"
+											       onchange="gestionItem('flexCheckInstallationDispositionsExigencesParticulieresPourLeSeisme')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckInstallationDispositionsExigencesParticulieresPourLeSeisme">
+												Exigences particulières pour le séisme
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divInstallationDispositionsDispositifs">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Dispositifs"
+											       id="flexCheckInstallationDispositionsDispositifs"
+											       onchange="gestionItem('flexCheckInstallationDispositionsDispositifs')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckInstallationDispositionsDispositifs">
+												Dispositifs
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divInstallationDispositionsRaccordements">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox" value="Raccordements"
+											       id="flexCheckInstallationDispositionsRaccordements"
+											       onchange="gestionItem('flexCheckInstallationDispositionsRaccordements')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckInstallationDispositionsRaccordements">
+												Raccordements
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divInstallationDispositionsReseauxDeTerreEtDeMasse">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="Réseaux de terre et de masse"
+											       id="flexCheckInstallationDispositionsReseauxDeTerreEtDeMasse"
+											       onchange="gestionItem('flexCheckInstallationDispositionsReseauxDeTerreEtDeMasse')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckInstallationDispositionsReseauxDeTerreEtDeMasse">
+												Réseaux de terre et de masse
+											</label>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div id="divInstallationDispositionsIdentificationDesLiaisons">
+										<div class="form-check">
+											<input class="form-check-input" type="checkbox"
+											       value="Identification des liaisons"
+											       id="flexCheckInstallationDispositionsIdentificationDesLiaisons"
+											       onchange="gestionItem('flexCheckInstallationDispositionsIdentificationDesLiaisons')"
+											>
+											<label class="form-check-label"
+											       for="flexCheckInstallationDispositionsIdentificationDesLiaisons">
+												Identification des liaisons
+											</label>
+										</div>
+									</div>
+								</li>
+							</div>
+						</ul>
+					</li>
+				</ul>
+			</li>
+			<li>
                 <span class="caret">
                     Système électrique
                 </span>
-                <ul class="nested">
-                    <li>
-                        <div id="divSystemesElectriquesExigencesDeSureteEtExigencesFonctionnelles">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox"
-                                       value="Exigences de sûreté et exigences fonctionnelles"
-                                       id="flexCheckSystemesElectriquesExigencesDeSureteEtExigencesFonctionnelles"
-                                       onchange="gestionItem('flexCheckSystemesElectriquesExigencesDeSureteEtExigencesFonctionnelles')"
-                                >
-                                <label class="form-check-label"
-                                       for="flexCheckSystemesElectriquesExigencesDeSureteEtExigencesFonctionnelles">
-                                    Exigences de sûreté et exigences fonctionnelles
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div id="divSystemesElectriquesExigencesEnMatiereDeConceptionDuSystemeElectrique">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox"
-                                       value="Exigences en matière de conception du système électrique"
-                                       id="flexCheckSystemesElectriquesExigencesEnMatiereDeConceptionDuSystemeElectrique"
-                                       onchange="gestionItem('flexCheckSystemesElectriquesExigencesEnMatiereDeConceptionDuSystemeElectrique')"
-                                >
-                                <label class="form-check-label"
-                                       for="flexCheckSystemesElectriquesExigencesEnMatiereDeConceptionDuSystemeElectrique">
-                                    Exigences en matière de conception du système électrique
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div id="divSystemesElectriquesArchitectureDuSystemeElectrique">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox"
-                                       value="Architecture du système électrique"
-                                       id="flexCheckSystemesElectriquesArchitectureDuSystemeElectrique"
-                                       onchange="gestionItem('flexCheckSystemesElectriquesArchitectureDuSystemeElectrique')"
-                                >
-                                <label class="form-check-label"
-                                       for="flexCheckSystemesElectriquesArchitectureDuSystemeElectrique">
-                                    Architecture du système électrique
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div id="divSystemesElectriquesConceptionDesSystemesElectriques">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox"
-                                       value="Conception des systèmes électriques"
-                                       id="flexCheckSystemesElectriquesConceptionDesSystemesElectriques"
-                                       onchange="gestionItem('flexCheckSystemesElectriquesConceptionDesSystemesElectriques')"
-                                >
-                                <label class="form-check-label"
-                                       for="flexCheckSystemesElectriquesConceptionDesSystemesElectriques">
-                                    Conception des systèmes électriques
-                                </label>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+				<ul class="nested">
+					<li>
+						<div id="divSystemesElectriquesExigencesDeSureteEtExigencesFonctionnelles">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox"
+								       value="Exigences de sûreté et exigences fonctionnelles"
+								       id="flexCheckSystemesElectriquesExigencesDeSureteEtExigencesFonctionnelles"
+								       onchange="gestionItem('flexCheckSystemesElectriquesExigencesDeSureteEtExigencesFonctionnelles')"
+								>
+								<label class="form-check-label"
+								       for="flexCheckSystemesElectriquesExigencesDeSureteEtExigencesFonctionnelles">
+									Exigences de sûreté et exigences fonctionnelles
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id="divSystemesElectriquesExigencesEnMatiereDeConceptionDuSystemeElectrique">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox"
+								       value="Exigences en matière de conception du système électrique"
+								       id="flexCheckSystemesElectriquesExigencesEnMatiereDeConceptionDuSystemeElectrique"
+								       onchange="gestionItem('flexCheckSystemesElectriquesExigencesEnMatiereDeConceptionDuSystemeElectrique')"
+								>
+								<label class="form-check-label"
+								       for="flexCheckSystemesElectriquesExigencesEnMatiereDeConceptionDuSystemeElectrique">
+									Exigences en matière de conception du système électrique
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id="divSystemesElectriquesArchitectureDuSystemeElectrique">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox"
+								       value="Architecture du système électrique"
+								       id="flexCheckSystemesElectriquesArchitectureDuSystemeElectrique"
+								       onchange="gestionItem('flexCheckSystemesElectriquesArchitectureDuSystemeElectrique')"
+								>
+								<label class="form-check-label"
+								       for="flexCheckSystemesElectriquesArchitectureDuSystemeElectrique">
+									Architecture du système électrique
+								</label>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div id="divSystemesElectriquesConceptionDesSystemesElectriques">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox"
+								       value="Conception des systèmes électriques"
+								       id="flexCheckSystemesElectriquesConceptionDesSystemesElectriques"
+								       onchange="gestionItem('flexCheckSystemesElectriquesConceptionDesSystemesElectriques')"
+								>
+								<label class="form-check-label"
+								       for="flexCheckSystemesElectriquesConceptionDesSystemesElectriques">
+									Conception des systèmes électriques
+								</label>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
 </div>

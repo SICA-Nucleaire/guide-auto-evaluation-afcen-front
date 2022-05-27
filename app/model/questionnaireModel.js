@@ -16,15 +16,15 @@
  ******************************************************************************/
 
 class QuestionnaireModel {
-    constructor() {
-        this.api = new QuestionnaireApi()
-    }
-
-    async genererQuestionnaire(body) {
-        return await this.api.genererQuestionnaire(body)
-    }
-
-    async verifierQuestionnaire(body) {
-        return await this.api.verifierQuestionnaire(body)
-    }
+	constructor() {
+		this.api = new QuestionnaireApi()
+	}
+	
+	async genererQuestionnaire(body) {
+		return await this.api.genererQuestionnaire(body)
+	}
+	
+	async verifierQuestionnaire(body) {
+		return await this.api.verifierQuestionnaire(body)
+	}
 }

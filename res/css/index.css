@@ -48,7 +48,7 @@ hr {
     height: 5px;
 }
 
-#divListeThemes ul{
+#divListeThemes ul {
     list-style-type: none;
 }
 
@@ -67,15 +67,15 @@ hr {
 
 .caret::before {
     content: "\25B6";
-    color: rgba(255,255,255,1)!important;
+    color: rgba(255, 255, 255, 1) !important;
     display: inline-block;
     margin-right: 6px;
 }
 
 .caret-down::before {
     -ms-transform: rotate(90deg); /* IE 9 */
-    -webkit-transform: rotate(90deg); /* Safari */'
-    transform: rotate(90deg);
+    -webkit-transform: rotate(90deg); /* Safari */
+' transform: rotate(90 deg);
 }
 
 .nested {

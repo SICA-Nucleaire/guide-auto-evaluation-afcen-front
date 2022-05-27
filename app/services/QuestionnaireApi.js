@@ -19,17 +19,26 @@ class QuestionnaireApi {
 	constructor() {
 		this.api = "http://127.0.0.1:3000"
 	}
-
-	async myFetchPostBody(url, body) {
-		return new Promise((resolve, reject) => {
-			fetch(`${this.api}/${url}`, {
-				method : 'POST',
-				headers : {
-					'Accept' : 'application/json',
-					'Content-Type' : 'application/json'
-				},
-				body : JSON.stringify(body)
-			}).then(
+	
+	async myFetchPostBody(
+		url,
+		body
+	) {
+		return new Promise((
+			                   resolve,
+			                   reject
+		                   ) => {
+			fetch(
+				`${this.api}/${url}`,
+				{
+					method  : 'POST',
+					headers : {
+						'Accept'       : 'application/json',
+						'Content-Type' : 'application/json'
+					},
+					body    : JSON.stringify(body)
+				}
+			).then(
 				async r => {
 					if (r.status < 200 || r.status > 299) {
 						const data = await r.json()
@@ -46,12 +55,18 @@ class QuestionnaireApi {
 			)
 		})
 	}
-
+	
 	async genererQuestionnaire(body) {
-		return this.myFetchPostBody('questions/questionnaire', body)
+		return this.myFetchPostBody(
+			'questions/questionnaire',
+			body
+		)
 	}
-
+	
 	async verifierQuestionnaire(body) {
-		return this.myFetchPostBody('questions/check', body)
+		return this.myFetchPostBody(
+			'questions/check',
+			body
+		)
 	}
 }

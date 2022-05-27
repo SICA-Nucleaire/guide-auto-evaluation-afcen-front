@@ -15,20 +15,28 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.     *
  ******************************************************************************/
 
-class IndexController extends BaseController {
-    constructor() {
-        super()
-
-        const toggler = document.getElementsByClassName("caret");
-        let i;
-
-        for (i = 0; i < toggler.length; i++) {
-            toggler[i].addEventListener("click", function () {
-                this.parentElement.querySelector(".nested").classList.toggle("active");
-                this.classList.toggle("caret-down");
-            });
-        }
-    }
+class IndexController
+	extends BaseController {
+	constructor() {
+		super()
+		
+		const toggler = document.getElementsByClassName("caret");
+		let i;
+		
+		for (
+			i = 0;
+			i < toggler.length;
+			i++
+		) {
+			toggler[i].addEventListener(
+				"click",
+				function () {
+					this.parentElement.querySelector(".nested").classList.toggle("active");
+					this.classList.toggle("caret-down");
+				}
+			);
+		}
+	}
 }
 
 window.indexController = new IndexController()

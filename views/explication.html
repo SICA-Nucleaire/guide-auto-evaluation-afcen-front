@@ -16,50 +16,50 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <div class="container">
-    <h1 class="text-center mb-5">Méthodologie du test</h1>
-    Pour chaque question, le résultat est noté de manière binaire à savoir que seules les bonnes réponses doivent être
-    cochées pour obtenir les points correspondants :
-    <ul>
-        <li>1 point pour les questions vrai/faux</li>
-        <li>2 points pour les questions de niveau débutant</li>
-        <li>3 points pour les questions de niveau intermédiaire</li>
-        <li>4 points pour les questions de niveau expert</li>
-    </ul>
-
-    <br>
-    Vous avez sélectionné <span id="nbThemes"></span>.
-    <br>
-    <br>
-    <br>
-    <div id="warning">
-        <p>
-            Souhaitez-vous faire :
-        </p>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="flexCheckBoxTestComplet" id="flexCheckBoxTestComplet"
-                   onchange="if ($('#flexCheckBoxTestComplet').checked) {$('#flexCheckBoxTestPartiel').checked = false}">
-            <label class="form-check-label" for="flexCheckBoxTestComplet">
-                Un test complet avec une durée estimée de <span id="nbMinutes"></span> minutes
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="flexCheckBoxTestPartiel" id="flexCheckBoxTestPartiel"
-                   onchange="if ($('#flexCheckBoxTestPartiel').checked) {$('#flexCheckBoxTestComplet').checked = false}">
-            <label class="form-check-label" for="flexCheckBoxTestPartiel">
-                    Un test partiel par tirage aléatoire des thèmes sélectionnés afin de rester dans la durée estimée de
-                    30 minutes
-            </label>
-        </div>
-    </div>
-
-    <br>
-    Veuillez cliquer sur "Continuer" pour démarrer le test.
-
-
-    <div style="width: 100%; display: flex; align-items: end; justify-content: end;"
-         onclick="if ($('#flexCheckBoxTestPartiel').checked){window.listeTheme = shuffle(window.listeTheme).slice(0, 12);} navigate('question')">
-        <button type="button" class="btn btn-lg btn-primary">
-            Continuer ➡️
-        </button>
-    </div>
+	<h1 class="text-center mb-5">Méthodologie du test</h1>
+	Pour chaque question, le résultat est noté de manière binaire à savoir que seules les bonnes réponses doivent être
+	cochées pour obtenir les points correspondants :
+	<ul>
+		<li>1 point pour les questions vrai/faux</li>
+		<li>2 points pour les questions de niveau débutant</li>
+		<li>3 points pour les questions de niveau intermédiaire</li>
+		<li>4 points pour les questions de niveau expert</li>
+	</ul>
+	
+	<br>
+	Vous avez sélectionné <span id="nbThemes"></span>.
+	<br>
+	<br>
+	<br>
+	<div id="warning">
+		<p>
+			Souhaitez-vous faire :
+		</p>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" name="flexCheckBoxTestComplet" id="flexCheckBoxTestComplet"
+			       onchange="if ($('#flexCheckBoxTestComplet').checked) {$('#flexCheckBoxTestPartiel').checked = false}">
+			<label class="form-check-label" for="flexCheckBoxTestComplet">
+				Un test complet avec une durée estimée de <span id="nbMinutes"></span> minutes
+			</label>
+		</div>
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" name="flexCheckBoxTestPartiel" id="flexCheckBoxTestPartiel"
+			       onchange="if ($('#flexCheckBoxTestPartiel').checked) {$('#flexCheckBoxTestComplet').checked = false}">
+			<label class="form-check-label" for="flexCheckBoxTestPartiel">
+				Un test partiel par tirage aléatoire des thèmes sélectionnés afin de rester dans la durée estimée de
+				30 minutes
+			</label>
+		</div>
+	</div>
+	
+	<br>
+	Veuillez cliquer sur "Continuer" pour démarrer le test.
+	
+	
+	<div style="width: 100%; display: flex; align-items: end; justify-content: end;"
+	     onclick="if ($('#flexCheckBoxTestPartiel').checked){window.listeTheme = shuffle(window.listeTheme).slice(0, 12);} navigate('question')">
+		<button type="button" class="btn btn-lg btn-primary">
+			Continuer ➡️
+		</button>
+	</div>
 </div>

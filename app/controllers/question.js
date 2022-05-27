@@ -15,57 +15,87 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.     *
  ******************************************************************************/
 
-class QuestionController extends BaseController {
+class QuestionController
+	extends BaseController {
 	constructor() {
 		super();
-		this.reponsesAEnvoyer = [];
+		this.reponsesAEnvoyer   = [];
 		this.questionnaireModel = new QuestionnaireModel();
 		this.genererQuestionnaire()
 	}
-
-	ajouterReponse(id, numeroQuestion, theme, difficulte, reponse, scoreMax) {
+	
+	ajouterReponse(
+		id,
+		numeroQuestion,
+		theme,
+		difficulte,
+		reponse,
+		scoreMax
+	) {
 		let temp = {
-			'id' : id,
+			'id'             : id,
 			'numeroQuestion' : numeroQuestion,
-			'theme' : theme,
-			'difficulte' : difficulte,
+			'theme'          : theme,
+			'difficulte'     : difficulte,
 			'bonnesReponses' : [],
-			'scoreMax' : scoreMax
+			'scoreMax'       : scoreMax
 		}
 		temp.bonnesReponses.push(reponse)
 		this.reponsesAEnvoyer.push(temp)
-		// console.log(this.reponsesAEnvoyer)
 	}
-
+	
 	reponseExiste(id) {
-		return isInArray(this.reponsesAEnvoyer, id)
-
+		return isInArray(
+			this.reponsesAEnvoyer,
+			id
+		)
+		
 	}
-
-	ajouterReponseExistant(id, reponse) {
-		this.reponsesAEnvoyer[indexInArray(this.reponsesAEnvoyer, id)].bonnesReponses.push(reponse)
-		// console.log(this.reponsesAEnvoyer)
+	
+	ajouterReponseExistant(
+		id,
+		reponse
+	) {
+		this.reponsesAEnvoyer[indexInArray(
+			this.reponsesAEnvoyer,
+			id
+		)].bonnesReponses.push(reponse)
 	}
-
+	
 	supprimerReponse(id) {
-		removeByIdInArray(this.reponsesAEnvoyer, id)
+		removeByIdInArray(
+			this.reponsesAEnvoyer,
+			id
+		)
 	}
-
-	supprimerReponseIntitule(id, intitule) {
-		removeIntituleByIdInArray(this.reponsesAEnvoyer, id, intitule)
+	
+	supprimerReponseIntitule(
+		id,
+		intitule
+	) {
+		removeIntituleByIdInArray(
+			this.reponsesAEnvoyer,
+			id,
+			intitule
+		)
 	}
-
+	
 	genererQuestionnaire() {
 		$("#question").innerHTML = ''
-		for (const listeThemeElement of listeTheme) {
+		for (const listeThemeElement of
+			listeTheme) {
 			/* Gestion des questions */
 			this.questionnaireModel.genererQuestionnaire({
 				                                             "theme" : listeThemeElement
 			                                             }).then(tableauQuestions => {
 				const scoreMax = tableauQuestions[3].scoreMax
 				// console.log('genererQuestionnaire', scoreMax)
-				const newTab = tableauQuestions.splice(0, 3)
-				for (const question of newTab) {
+				const newTab   = tableauQuestions.splice(
+					0,
+					3
+				)
+				for (const question of
+					newTab) {
 					const intitule = question.bonnesReponses[0].intitule
 					if (intitule === "Faux" || intitule === "Vrai") {
 						let reponses = [];
@@ -77,10 +107,19 @@ class QuestionController extends BaseController {
                             <div id="infoQuestion">Question n°${question.numeroQuestion} (${question.theme} - ${question.difficulte}) : <span style="color: lightblue">${question.intituleDeLaQuestion}</span></div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" 
-		                            name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}" 
+		                            name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-${reponses[0]}"
 		                            onchange="
-		                            	if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked) { 
-											$('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked = false; 
+		                            	if ($('#flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-${reponses[0]}').checked) {
+											$('#flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-${reponses[1]}').checked = false;
 											questionController.supprimerReponse('${question.id}'); 
 											questionController.ajouterReponse( 
 												'${question.id}', 
@@ -92,16 +131,28 @@ class QuestionController extends BaseController {
 											); 
 										} 
 									">
-                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}">
+                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-${reponses[0]}">
                                     <div id="reponseUne">${reponses[0]}</div>
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" 
-                                	name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}" 
+                                	name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-${reponses[1]}"
                                 	onchange="
-                                		if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}').checked) {
-											$('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[0]}').checked = false; 
+                                		if ($('#flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-${reponses[1]}').checked) {
+											$('#flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-${reponses[0]}').checked = false;
 											questionController.supprimerReponse('${question.id}'); 
 											questionController.ajouterReponse( 
 												'${question.id}',
@@ -113,7 +164,10 @@ class QuestionController extends BaseController {
 											); 
 										}
 									">
-                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-${reponses[1]}">
+                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-${reponses[1]}">
                                     <div id="reponseDeux">${reponses[1]}</div>
                                 </label>
                             </div>
@@ -122,21 +176,29 @@ class QuestionController extends BaseController {
 					}
 					else {
 						let reponses = [];
-						for (const bonneReponseKey in question.bonnesReponses) {
+						for (const bonneReponseKey in
+							question.bonnesReponses) {
 							reponses.push(question.bonnesReponses[bonneReponseKey].intitule)
 						}
-						for (const mauvaisesReponsesKey in question.mauvaisesReponses) {
+						for (const mauvaisesReponsesKey in
+							question.mauvaisesReponses) {
 							reponses.push(question.mauvaisesReponses[mauvaisesReponsesKey].intitule)
 						}
 						let reponsesMelangees = shuffle(reponses)
-
+						
 						$("#question").innerHTML +=
 							`
                             <div id="infoQuestion">Question n°${question.numeroQuestion} (${question.theme} - ${question.difficulte}) : <span style="color: lightblue">${question.intituleDeLaQuestion}</span></div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-0" 
+                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-0"
                                 	onchange="
-	                                    if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-0').checked) {
+	                                    if ($('#flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-0').checked) {
 											if (questionController.reponseExiste('${question.id}')) {
 												questionController.ajouterReponse(
 														'${question.id}', 
@@ -159,14 +221,23 @@ class QuestionController extends BaseController {
 											)
 	                                    }
                                 	">
-                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-0">
+                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-0">
                                     <div id="reponseUne">${reponsesMelangees[0]}</div>
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-1"
+                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-1"
                                 	onchange="
-	                                    if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-1').checked) {
+	                                    if ($('#flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-1').checked) {
 											if (questionController.reponseExiste('${question.id}')) {
 												questionController.ajouterReponse(
 														'${question.id}', 
@@ -189,14 +260,23 @@ class QuestionController extends BaseController {
 											)
 	                                    }
                                 	">	
-                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-1">
+                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-1">
                                     <div id="reponseDeux">${reponsesMelangees[1]}</div>
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-2"
+                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-2"
                                 	onchange="
-	                                    if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-2').checked) {
+	                                    if ($('#flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-2').checked) {
 											if (questionController.reponseExiste('${question.id}')) {
 												questionController.ajouterReponse(
 														'${question.id}', 
@@ -219,14 +299,23 @@ class QuestionController extends BaseController {
 											)
 	                                    }
                                 	">
-                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-2">
+                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-2">
                                     <div id="reponseTrois">${reponsesMelangees[2]}</div>
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(0, -1)}-3"
+                                <input class="form-check-input" type="checkbox" name="flexRadioDefault" id="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-3"
                                 	onchange="
-	                                    if ($('#flexRadioDefault${question.id.substring(1).slice(0, -1)}-3').checked) {
+	                                    if ($('#flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-3').checked) {
 											if (questionController.reponseExiste('${question.id}')) {
 												questionController.ajouterReponse(
 														'${question.id}', 
@@ -249,7 +338,10 @@ class QuestionController extends BaseController {
 											)
 	                                    }
                                 	">
-                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(0, -1)}-3">
+                                <label class="form-check-label" for="flexRadioDefault${question.id.substring(1).slice(
+								0,
+								-1
+							)}-3">
                                     <div id="reponseQuatre">${reponsesMelangees[3]}</div>
                                 </label>
                             </div>
@@ -260,76 +352,86 @@ class QuestionController extends BaseController {
 			})
 		}
 	}
-
-	creerChart(themes, notes) {
-		const ctx = document.getElementById('myChart');
+	
+	creerChart(
+		themes,
+		notes
+	) {
+		const ctx                                         = document.getElementById('myChart');
 		document.getElementById('divChart').style.display = 'block';
-		new Chart(ctx, {
-			type : 'bar',
-			data : {
-				labels : themes/*['SMQ', 'Aspect matériel', 'Déclaration de Conformité', 'Document de Suivi', 'Procès verbal d’essais', 'Rapport de Fin de Fabrication']*/,
-				datasets : [{
-					axis : 'y',
-					label : 'Note (en %)',
-					data : notes/*[9, 57, 33.33, 77.78, 20, 50]*/,
-					backgroundColor : [
-						'rgba(255, 99, 132, 0.2)',
-						'rgba(54, 162, 235, 0.2)',
-						'rgba(255, 206, 86, 0.2)',
-						'rgba(75, 192, 192, 0.2)',
-						'rgba(153, 102, 255, 0.2)',
-						'rgba(255, 159, 64, 0.2)'
-					],
-					borderColor : [
-						'rgba(255, 99, 132, 1)',
-						'rgba(54, 162, 235, 1)',
-						'rgba(255, 206, 86, 1)',
-						'rgba(75, 192, 192, 1)',
-						'rgba(153, 102, 255, 1)',
-						'rgba(255, 159, 64, 1)'
-					],
-					borderWidth : 1
-				}]
-			},
-			options : {
-				indexAxis : 'y',
-				scales : {
-					x : {
-						suggestedMin : 0,
-						suggestedMax : 100
-					}
+		new Chart(
+			ctx,
+			{
+				type    : 'bar',
+				data    : {
+					labels   : themes,
+					datasets : [
+						{
+							axis            : 'y',
+							label           : 'Note (en %)',
+							data            : notes,
+							backgroundColor : [
+								'rgba(255, 99, 132, 0.2)',
+								'rgba(54, 162, 235, 0.2)',
+								'rgba(255, 206, 86, 0.2)',
+								'rgba(75, 192, 192, 0.2)',
+								'rgba(153, 102, 255, 0.2)',
+								'rgba(255, 159, 64, 0.2)'
+							],
+							borderColor     : [
+								'rgba(255, 99, 132, 1)',
+								'rgba(54, 162, 235, 1)',
+								'rgba(255, 206, 86, 1)',
+								'rgba(75, 192, 192, 1)',
+								'rgba(153, 102, 255, 1)',
+								'rgba(255, 159, 64, 1)'
+							],
+							borderWidth     : 1
+						}
+					]
 				},
-				backgroundColor : 'rgba(255,255,255,0.7)'
+				options : {
+					indexAxis       : 'y',
+					scales          : {
+						x : {
+							suggestedMin : 0,
+							suggestedMax : 100
+						}
+					},
+					backgroundColor : 'rgba(255,255,255,0.7)'
+				}
 			}
-		});
+		);
 	}
-
+	
 	verifierQuestionnaire() {
 		let scoreParTheme = window.listeTheme
-		let tableau = []
-		for (const theme of scoreParTheme) {
+		let tableau       = []
+		for (const theme of
+			scoreParTheme) {
 			tableau.push({
-				             "theme" : theme,
-				             "scoreMax" : 0,
+				             "theme"       : theme,
+				             "scoreMax"    : 0,
 				             "scoreActuel" : 0
 			             })
 		}
-		for (const reponse of this.reponsesAEnvoyer) {
-			const indexRequis = tableau.findIndex(el => {
+		for (const reponse of
+			this.reponsesAEnvoyer) {
+			const indexRequis             = tableau.findIndex(el => {
 				return el.theme === reponse.theme;
 			})
 			tableau[indexRequis].scoreMax = reponse.scoreMax
-			let body = {
+			let body                      = {
 				"numeroQuestion" : reponse.numeroQuestion,
-				"theme" : reponse.theme,
-				"difficulte" : reponse.difficulte,
+				"theme"          : reponse.theme,
+				"difficulte"     : reponse.difficulte,
 				"bonnesReponses" : []
 			}
-			for (const bonnesReponsesChoisie of reponse.bonnesReponses) {
+			for (const bonnesReponsesChoisie of
+				reponse.bonnesReponses) {
 				body.bonnesReponses.push(bonnesReponsesChoisie)
 			}
 			this.questionnaireModel.verifierQuestionnaire(body).then(r => {
-				console.log(`Question ${body.numeroQuestion} (${body.theme} - ${body.difficulte}) :`, r)
 				if (r) {
 					if (body.bonnesReponses[0].intitule === "Vrai" || body.bonnesReponses[0].intitule === "Faux") {
 						tableau[indexRequis].scoreActuel += 1
@@ -355,15 +457,22 @@ class QuestionController extends BaseController {
 		window.listeTheme = ['SMQ']
 		sleep(2000).then(_ => {
 			let themes = []
-			let notes = []
-			for (const element of tableau) {
+			let notes  = []
+			for (const element of
+				tableau) {
 				themes.push(element.theme)
-				const pourcentage = ((100 * element.scoreActuel) / element.scoreMax)
+				const pourcentage = (
+					(
+						100 * element.scoreActuel
+					) / element.scoreMax
+				)
 				notes.push(pourcentage)
 			}
-			this.creerChart(themes, notes)
+			this.creerChart(
+				themes,
+				notes
+			)
 		})
-
 	}
 }
 
