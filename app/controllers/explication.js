@@ -26,11 +26,11 @@ class ExplicationController
 	
 	formatText() {
 		let nbTheme = window.listeTheme.length
-		if (nbTheme === 1) {
-			$('#nbThemes').innerHTML = `${nbTheme} thème`
+		if (nbTheme < 2) {
+			$('#nbThemes').innerHTML = `${nbTheme - 1} thème et a été rajouté, par défaut, 1 thème sur le SMQ`
 		}
 		else {
-			$('#nbThemes').innerHTML = `${nbTheme} thèmes`
+			$('#nbThemes').innerHTML = `${nbTheme - 1} thèmes et a été rajouté, par défaut, 1 thème sur le SMQ`
 		}
 		
 		if (window.listeTheme.length > 12) {

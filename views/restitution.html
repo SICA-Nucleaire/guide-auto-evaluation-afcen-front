@@ -16,18 +16,16 @@
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
 
 <div class="container">
-	<div id="divLoader"></div>
-	<div id="divlisteQuestion">
-		<div id="question">
-		</div>
-		<div style="width: 100%; display: flex; align-items: center; justify-content: end;"
-		     onclick="questionController.verifierQuestionnaire()">
-			<button type="button" class="btn btn-lg btn-primary">
-				Valider
-			</button>
-		</div>
+	<div id="divRestitution">
+		<h1 class="text-center">
+			Date du test de connaissance : <span id="date"></span>
+		</h1>
+		Vous avez effectué un test de connaissance au code RCC-E 2019 et avez obtenu le score suivant réparti par thème
+		sur ce diagramme en barres :
 		<div id="divChart" class="bg-light mt-2" style="display: none">
-			<canvas id="myChart" width="100%" height="50"></canvas>
+			<canvas id="myChart" width="70" height="50"></canvas>
 		</div>
+		Pour rappel, ce diagnostic ne se substitue pas à l’évaluation du code par un audit du code complet et ne préjuge
+		pas des résultats de cet audit.
 	</div>
 </div>
