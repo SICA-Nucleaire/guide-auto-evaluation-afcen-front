@@ -104,3 +104,11 @@ hr {
         transform: rotate(360deg);
     }
 }
+
+.form-check-input:disabled ~ .form-check-label, .form-check-input[disabled] ~ .form-check-label {
+    opacity: 1 !important;
+}
+
+.form-check-input:disabled {
+    opacity: 1 !important;
+}
