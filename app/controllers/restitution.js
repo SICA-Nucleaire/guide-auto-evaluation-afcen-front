@@ -21,10 +21,230 @@ class RestitutionController
 	constructor() {
 		super();
 		$("#date").innerHTML = new Date().toLocaleDateString()
+		this.domaines        =
+			[
+				{
+					"Domaine"      : "Fabrication et / ou remise en état",
+					"Sous-Domaine" : [
+						{
+							"Électronique" : [
+								"Aspect matériel"
+							]
+						},
+						{
+							"Traçabilité" : [
+								"Déclaration de Conformité",
+								"Document de Suivi",
+								"Procès-Verbal d’essais",
+								"Rapport de Fin de Fabrication"
+							]
+						},
+						{
+							"Fournisseur / sous-traitants" : [
+								"Spécification d’approvisionnement"
+							]
+						},
+						{
+							"Ingénierie du matériel" : [
+								"Interférence électromagnétique",
+								"Résistance mécanique",
+								"Enveloppes",
+								"Marquage",
+								"Sertissage",
+								"Polymère",
+								"Résistance au feu",
+								"Termipoint",
+								"Wrapping",
+								"Exigences et recommandations spécifiques aux matériels",
+								"Interchangeabilité",
+								"Câblage interne",
+								"Maintenance",
+								"Contrôles et essais",
+								"Déverminage"
+							]
+						}
+					],
+				},
+				{
+					"Domaine"      : "Études",
+					"Sous-Domaine" : [
+						{
+							"Qualification logiciel" : [
+								"ANFL",
+								"HDL",
+								"Système programmé"
+							]
+						},
+						{
+							"Qualification matériel" : [
+								"KLIF aux conditions normales d’ambiance",
+								"KLIF K3",
+								"KLIF K2",
+								"KLIF K1",
+								"KLIF AG",
+								"Données d’entrée",
+								"Généralités et documents",
+								"Contrôle des performances",
+								"Extension de KLIF matériel"
+							]
+						},
+						{
+							"Obsolescence" : [
+								"Obsolescence"
+							]
+						},
+						{
+							"Pérennité de qualification" : [
+								"Dossier de Référence",
+								"Opération sensible d’approvisionnement ou de fabrication",
+								"Essais sur prélèvement",
+								"Procédure de gestion du Dossier de Référence"
+							]
+						}
+					]
+				},
+				{
+					"Domaine"      : "Installation",
+					"Sous-Domaine" : [
+						{
+							"Études" : [
+								"Études"
+							]
+						},
+						{
+							"Vérifications" : [
+								"Vérifications"
+							]
+						},
+						{
+							"Pérennité" : [
+								"Pérennité"
+							]
+						},
+						{
+							"Dispositions" : [
+								"Séparation",
+								"Exigences particulières pour le séisme",
+								"Dispositifs",
+								"Raccordements",
+								"Réseaux de terre et de masse",
+								"Identification des liaisons"
+							]
+						}
+					]
+				},
+				{
+					"Domaine"      : "Système électrique",
+					"Sous-Domaine" : [
+						{
+							"Exigences de sûreté et exigences fonctionnelles" : [
+								"Exigences de sûreté et exigences fonctionnelles"
+							]
+						},
+						{
+							"Exigences en matière de conception du système électrique" : [
+								"Exigences en matière de conception du système électrique"
+							]
+						},
+						{
+							"Architecture du système électrique" : [
+								"Architecture du système électrique"
+							]
+						},
+						{
+							"Conception des systèmes électriques" : [
+								"Conception des systèmes électriques"
+							]
+						},
+					]
+				}
+			]
+		this.sousDomaines    =
+			[
+				"Électronique",
+				"Traçabilité",
+				"Fournisseur / sous-traitants",
+				"Ingénierie du matériel",
+				"Qualification logiciel",
+				"Qualification matériel",
+				"Obsolescence",
+				"Pérennité de qualification",
+				"Études",
+				"Vérifications",
+				"Pérennité",
+				"Dispositions",
+				"Exigences de sûreté et exigences fonctionnelles",
+				"Exigences en matière de conception du système électrique",
+				"Architecture du système électrique",
+				"Conception des systèmes électriques",
+			]
+		this.restituerThemes(window.themes)
 		this.creerChart(
 			window.themes,
 			window.notes
 		)
+	}
+	
+	restituerThemes(listeDeThemes) {
+		for (const domaine of
+			this.domaines) {
+			let ulName = `ul${domaine.Domaine}`
+			$("#divListeThemeRestitution").innerHTML +=
+				`
+					<li>
+						<span class="caret-down">${domaine.Domaine}</span>
+						<ul id="${ulName}">
+						</ul>
+					</li>
+				`
+			for (const sousDomaine of
+				domaine["Sous-Domaine"]) {
+				const i = domaine["Sous-Domaine"].indexOf(sousDomaine)
+				
+				for (const sousDomaineElement of
+					this.sousDomaines) {
+					if (domaine["Sous-Domaine"][i][sousDomaineElement]) {
+						document.getElementById(ulName).innerHTML +=
+							`
+						                <li>
+						                    <span class="caret-down">
+						                        ${sousDomaineElement}
+						                    </span>
+						                    <ul id="ul ${domaine.Domaine} ${sousDomaineElement}">
+							                    <li>
+							                    
+												</li>
+											</ul>
+						                </li>
+									`
+					}
+					for (const theme of
+						listeDeThemes) {
+						if (domaine["Sous-Domaine"][i][sousDomaineElement]) {
+							for (const themeTrouve of
+								domaine["Sous-Domaine"][i][sousDomaineElement]) {
+								if (themeTrouve === theme) {
+									let ulToFill = `ul ${domaine.Domaine} ${sousDomaineElement}`
+									document.getElementById(ulToFill).innerHTML +=
+										`
+							                <li>
+							                    <div id="div ${domaine.Domaine} ${theme}">
+									                <div class="form-check">
+										                <input class="form-check-input" checked disabled type="checkbox" value="Aspect matériel" id="flexCheck ${domaine.Domaine} ${theme}">
+										                <label class="form-check-label" for="flexCheck ${domaine.Domaine} ${theme}">
+										                    ${theme}
+										                </label>
+									                </div>
+							                    </div>
+							                </li>
+										`
+								}
+							}
+						}
+					}
+				}
+			}
+		}
 	}
 	
 	creerChart(
