@@ -230,7 +230,7 @@ class RestitutionController
 							                <li>
 							                    <div id="div ${domaine.Domaine} ${theme}">
 									                <div class="form-check">
-										                <input class="form-check-input" checked disabled type="checkbox" value="Aspect matériel" id="flexCheck ${domaine.Domaine} ${theme}">
+										                <input class="form-check-input" checked disabled type="checkbox" id="flexCheck ${domaine.Domaine} ${theme}">
 										                <label class="form-check-label" for="flexCheck ${domaine.Domaine} ${theme}">
 										                    ${theme}
 										                </label>
@@ -241,9 +241,26 @@ class RestitutionController
 								}
 							}
 						}
+						
 					}
 				}
 			}
+		}
+		if (listeDeThemes.includes('SMQ')) {
+			$("#divListeThemeRestitution").innerHTML +=
+				`
+	                <li>
+	                    <div id="div SMQ">
+			                <div class="form-check">
+				                <input class="form-check-input" checked disabled type="checkbox" id="flexCheckSMQ">
+				                <label class="form-check-label" for="flexCheckSMQ">
+				                    SMQ
+				                </label>
+			                </div>
+	                    </div>
+	                </li>
+				`
+			
 		}
 	}
 	
